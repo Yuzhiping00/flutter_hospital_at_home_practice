@@ -3,17 +3,21 @@ import 'package:flutter/material.dart';
 class BloodPressureResult extends StatelessWidget {
   final String value;
   final bool isLeft;
+  final double boxHeight;
+  final double textSize;
 
   const BloodPressureResult({
     super.key,
     required this.value,
     this.isLeft = false,
+    required this.boxHeight,
+    required this.textSize,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 50,
+      height: boxHeight,
       decoration: BoxDecoration(
         borderRadius: isLeft
             ? const BorderRadius.only(
@@ -34,10 +38,10 @@ class BloodPressureResult extends StatelessWidget {
       ),
       child: Center(
         child: Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(0.0),
           child: Text(
             value,
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: textSize, fontWeight: FontWeight.bold),
           ),
         ),
       ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'blood_pressure_result.dart';
 import 'blood_pressure_result_date.dart';
+import 'time_line_list_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -66,12 +67,59 @@ class VitalHistory extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              BloodPressureResult(value: "120/80", isLeft: true),
-              BloodPressureResult(value: "70", isLeft: false),
+              BloodPressureResult(
+                value: "120/80",
+                isLeft: true,
+                boxHeight: 50,
+                textSize: 18,
+              ),
+              BloodPressureResult(
+                value: "70",
+                isLeft: false,
+                boxHeight: 50,
+                textSize: 18,
+              ),
             ],
           ),
           Row(children: [BloodPressureResultDate()]),
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              ConstrainedBox(
+                constraints: BoxConstraints(maxWidth: 600, minWidth: 300),
+                child: TimelineListView(data: ["5:30pm", "3:00pm", "1:30pm"]),
+              ),
+            ],
+          ),
         ],
+      ),
+
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(border: Border.all(color: Colors.black)),
+        child: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.schedule),
+              label: 'Schedules',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.assignment),
+              label: 'Activities',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.monitor_heart_outlined),
+              label: 'Vital Results',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: 'My Profile',
+            ),
+          ],
+          selectedItemColor: Colors.blue,
+          unselectedItemColor: Colors.grey.shade500,
+        ),
       ),
     );
   }

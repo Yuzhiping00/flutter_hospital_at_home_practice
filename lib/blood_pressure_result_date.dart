@@ -17,7 +17,7 @@ class BloodPressureResultDate extends StatelessWidget {
         ), // Optional: for rounded corners
       ),
       //decoration: BoxDecoration(border: Border.all(width: 1.0)),
-      margin: EdgeInsets.only(top: 40, bottom: 40),
+      margin: EdgeInsets.only(top: 40, bottom: 10),
       width: MediaQuery.of(context).size.width,
 
       child: Padding(
