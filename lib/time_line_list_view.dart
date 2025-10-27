@@ -11,8 +11,8 @@ class TimelineListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ConstrainedBox(
       constraints: BoxConstraints(
-        maxHeight: 500,
-        minHeight: 300,
+        maxHeight: 200,
+        minHeight: 100,
         maxWidth: 250,
         minWidth: 100,
       ),

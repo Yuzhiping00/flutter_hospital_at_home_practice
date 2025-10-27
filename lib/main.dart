@@ -22,14 +22,28 @@ class MyApp extends StatelessWidget {
           seedColor: Colors.lightBlueAccent.shade700,
         ),
       ),
-      home: const VitalHistory(title: 'Blood Pressure History'),
+      home: VitalHistory(title: 'Blood Pressure History'),
     );
   }
 }
 
 class VitalHistory extends StatelessWidget {
-  const VitalHistory({super.key, required this.title});
+  VitalHistory({super.key, required this.title});
   final String title;
+  final List<Map<String, dynamic>> bloodPressureData = [
+    {
+      "date": "Oct 27, 2025",
+      "times": ["5:30 PM", "3:00 PM", "1:30 PM"],
+    },
+    {
+      "date": "Oct 26, 2025",
+      "times": ["6:00 PM", "4:15 PM", "2:00 PM"],
+    },
+    {
+      "date": "Oct 25, 2025",
+      "times": ["7:00 PM", "5:00 PM"],
+    },
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -61,66 +75,58 @@ class VitalHistory extends StatelessWidget {
           ),
         ],
       ),
-      body: Column(
-        children: [
-          SizedBox(height: 40),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              BloodPressureResult(
-                value: "120/80",
-                isLeft: true,
-                boxHeight: 50,
-                textSize: 18,
-                textPadding: 10,
-              ),
-              BloodPressureResult(
-                value: "70",
-                isLeft: false,
-                boxHeight: 50,
-                textSize: 18,
-                textPadding: 10,
-              ),
-            ],
-          ),
-          Row(children: [BloodPressureResultDate()]),
-
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              ConstrainedBox(
-                constraints: BoxConstraints(maxWidth: 600, minWidth: 300),
-                child: TimelineListView(data: ["5:30pm", "3:00pm", "1:30pm"]),
-              ),
-            ],
-          ),
-        ],
-      ),
-
-      bottomNavigationBar: Container(
-        decoration: BoxDecoration(border: Border.all(color: Colors.black)),
-        child: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(Icons.schedule),
-              label: 'Schedules',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.assignment),
-              label: 'Activities',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.monitor_heart_outlined),
-              label: 'Vital Results',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: 'My Profile',
-            ),
-          ],
-          selectedItemColor: Colors.blue,
-          unselectedItemColor: Colors.grey.shade500,
+      body: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 15),
+        child: ListView.builder(
+          itemCount: bloodPressureData.length,
+          itemBuilder: (context, index) {
+            final item = bloodPressureData[index];
+            final date = item['date'];
+            final times = item['times'] as List<String>;
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Blood Pressure summary (static or dynamic)
+                if (index == 0) ...[
+                  Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        BloodPressureResult(
+                          value: "120/80",
+                          isLeft: true,
+                          boxHeight: 50,
+                          textSize: 18,
+                          textPadding: 10,
+                        ),
+                        BloodPressureResult(
+                          value: "70",
+                          isLeft: false,
+                          boxHeight: 50,
+                          textSize: 18,
+                          textPadding: 10,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+                // Date row
+                BloodPressureResultDate(date: date),
+                // Timeline list
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: ConstrainedBox(
+                    constraints: const BoxConstraints(
+                      maxWidth: 600,
+                      minWidth: 300,
+                    ),
+                    child: TimelineListView(data: times),
+                  ),
+                ),
+              ],
+            );
+          },
         ),
       ),
     );
