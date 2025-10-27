@@ -5,6 +5,7 @@ class BloodPressureResult extends StatelessWidget {
   final bool isLeft;
   final double boxHeight;
   final double textSize;
+  final double textPadding;
 
   const BloodPressureResult({
     super.key,
@@ -12,6 +13,7 @@ class BloodPressureResult extends StatelessWidget {
     this.isLeft = false,
     required this.boxHeight,
     required this.textSize,
+    required this.textPadding,
   });
 
   @override
@@ -38,7 +40,7 @@ class BloodPressureResult extends StatelessWidget {
       ),
       child: Center(
         child: Padding(
-          padding: const EdgeInsets.all(0.0),
+          padding: EdgeInsets.all(textPadding),
           child: Text(
             value,
             style: TextStyle(fontSize: textSize, fontWeight: FontWeight.bold),
