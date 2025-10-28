@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'blood_pressure_result.dart';
 import 'blood_pressure_result_date.dart';
 import 'time_line_list_view.dart';
+import 'custom_app_bar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -48,33 +49,7 @@ class VitalHistory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color.fromRGBO(214, 222, 225, 0.9),
-        title: Text(
-          "Blood Pressure History",
-          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-        ),
-        centerTitle: true,
-        leading: Padding(
-          padding: const EdgeInsets.all(15.0),
-          child: FaIcon(FontAwesomeIcons.angleLeft),
-        ),
-        actions: <Widget>[
-          Padding(
-            padding: const EdgeInsets.only(right: 10),
-            child: IconButton(
-              icon: const FaIcon(
-                FontAwesomeIcons.solidCircleQuestion,
-                color: Color.fromRGBO(163, 73, 164, 0.9),
-              ), // The help icon
-              onPressed: () {
-                // Define what happens when the help icon is pressed
-                print('Help icon pressed!');
-              },
-            ),
-          ),
-        ],
-      ),
+      appBar: CustomAppBar(title: "Blood Pressure History"),
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 15),
         child: ListView.builder(
