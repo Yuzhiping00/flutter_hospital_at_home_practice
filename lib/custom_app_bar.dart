@@ -15,10 +15,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
       ),
       centerTitle: true,
-      leading: Padding(
-        padding: const EdgeInsets.all(15.0),
-        child: FaIcon(FontAwesomeIcons.angleLeft),
-      ),
+      // leading: Padding(
+      //   padding: const EdgeInsets.all(15.0),
+      //   child: FaIcon(FontAwesomeIcons.angleLeft),
+      // ),
       actions: <Widget>[
         Padding(
           padding: const EdgeInsets.only(right: 10),

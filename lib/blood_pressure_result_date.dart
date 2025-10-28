@@ -7,7 +7,12 @@ class BloodPressureResultDate extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.blue, // Background color of the container
+        color: Color.fromRGBO(
+          43,
+          120,
+          228,
+          1,
+        ), // Background color of the container
         border: Border.all(
           color: Colors.black, // Color of the border
           width: 1.0, // Width of the border
