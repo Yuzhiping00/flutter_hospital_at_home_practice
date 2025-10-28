@@ -3,15 +3,15 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 // Custom App Bar has to implements PreferredSizeWidget because Scaffold requires as appbar class to implement that widget
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppBar({super.key, required this.title});
-  final String title;
+  const CustomAppBar({super.key, required this.appBarTitle});
+  final String appBarTitle;
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: Color.fromRGBO(214, 222, 225, 0.9),
       title: Text(
-        title,
+        appBarTitle,
         style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
       ),
       centerTitle: true,
