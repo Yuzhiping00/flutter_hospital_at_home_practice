@@ -69,8 +69,8 @@ class VitalResultCard extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.blue,
                 padding: const EdgeInsets.symmetric(
-                  horizontal: 36,
-                  vertical: 24,
+                  vertical: 12,
+                  horizontal: 14,
                 ),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(6),
