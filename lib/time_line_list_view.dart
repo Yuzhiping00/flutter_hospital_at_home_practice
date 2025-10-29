@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'time_line_point.dart';
-import 'blood_pressure_result.dart';
+import 'blood_pressure_value.dart';
 
 class TimelineListView extends StatelessWidget {
   const TimelineListView({super.key, required this.data});

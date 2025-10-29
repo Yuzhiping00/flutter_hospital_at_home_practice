@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'blood_pressure_result.dart';
-import 'blood_pressure_result_date.dart';
+import 'blood_pressure_value.dart';
+import 'blood_pressure_measurement_date.dart';
 import 'time_line_list_view.dart';
 
 class BloodPressureAllResults extends StatelessWidget {

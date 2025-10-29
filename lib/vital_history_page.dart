@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'custom_app_bar.dart';
-import 'blood_pressure_all_results.dart';
+import 'blood_pressure_history_results.dart';
 
 class VitalHistory extends StatelessWidget {
   final String appBarTitle;

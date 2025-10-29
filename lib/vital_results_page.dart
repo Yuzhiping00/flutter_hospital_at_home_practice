@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hospital_at_home_practice/vital_history.dart';
+import 'package:flutter_hospital_at_home_practice/vital_history_page.dart';
 import 'package:flutter_hospital_at_home_practice/vital_result_card.dart';
 import 'custom_app_bar.dart';
 
